@@ -12,6 +12,7 @@ body {
   align-items: center;
   padding: 20px 50px;
   border-bottom: 1px solid #eee;
+  position: relative; /* for absolute mobile menu */
 }
 
 .logo {
@@ -73,7 +74,7 @@ body {
 }
 
 .thumb {
-  width: 80px;
+  width: 130px;
   border-radius: 10px;
   cursor: pointer;
   border: 2px solid transparent;
@@ -236,6 +237,14 @@ body {
   cursor: pointer;
 }
 
+/* ===== MOBILE TOGGLE BUTTON ===== */
+.toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 900px) {
@@ -245,8 +254,27 @@ body {
     gap: 30px;
   }
 
+  .toggle {
+    display: block; /* show hamburger */
+    color: #555;
+  }
+
   .nav-links {
-    display: none; /* Hide menu for mobile (you can add a hamburger menu later) */
+    display: none; /* hide menu initially on mobile */
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 70px; /* below navbar */
+    right: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+
+  .nav-links.active {
+    display: flex; /* show when toggle clicked */
   }
 
   .product-details {

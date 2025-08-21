@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartContent = $("cart-content") as HTMLDivElement;
   const cartIcon = document.querySelector(".cart-icon") as HTMLImageElement;
 
+  // Mobile nav toggle
+  const toggleBtn = $("toggleBtn") as HTMLButtonElement;
+  const navLinks = $("navLinks") as HTMLUListElement;
+
   interface CartItem {
     name: string;
     price: number;
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartPopup.style.display = "block";
     } else {
       cartContent.innerHTML = `<p>Your cart is empty.</p>`;
-      cartPopup.style.display = "none"; // Hide popup if empty
+      cartPopup.style.display = "none";
     }
   }
 
@@ -87,6 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
   cartIcon.addEventListener("click", () => {
     cartPopup.style.display =
       cartPopup.style.display === "block" ? "none" : "block";
+  });
+
+  // Mobile nav toggle
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
   });
 
   // Initialize
