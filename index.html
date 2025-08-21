@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneakers Product Page</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">sneakers</div>
+    <ul class="nav-links">
+      <li>Collections</li>
+      <li>Men</li>
+      <li>Women</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+    <div class="nav-icons">
+      <img src="./Assets/icon-cart.svg" alt="Cart" class="cart-icon" />
+      <img src="./Assets/image-avatar.png" alt="Profile" class="profile-img" />
+    </div>
+  </nav>
+  <!-- Cart Popup -->
+<div id="cart-popup" class="cart-popup">
+  <h3>Cart</h3>
+  <div id="cart-content" class="cart-content">
+    <p>Your cart is empty.</p>
+  </div>
+  <button class="checkout">Checkout</button>
+</div>
+
+  <!-- Product Section -->
+  <main class="product-container">
+    <div class="product-images">
+      <img src="./Assets/main-sneaker.jpg" alt="Main Sneaker" class="main-img" />
+      <div class="thumbnails">
+        <img src="./Assets/thumb1.jpg" alt="thumb1" class="thumb active" />
+        <img src="./Assets/thumb2.jpg" alt="thumb2" class="thumb" />
+        <img src="./Assets/thumb3.jpg" alt="thumb3" class="thumb" />
+        <img src="./Assets/thumb4.jpg" alt="thumb4" class="thumb" />
+      </div>
+    </div>
+
+    <div class="product-details">
+      <p class="company-name">SNEAKER COMPANY</p>
+      <h1 class="product-title">Fall Limited Edition Sneakers</h1>
+      <p class="product-description">
+        These low-profile sneakers are your perfect casual wear companion. 
+        Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
+      </p>
+
+      <div class="price-section">
+        <div class="price">
+          <span class="current-price">$125.00</span>
+          <span class="discount">50%</span>
+        </div>
+        <span class="old-price">$250.00</span>
+      </div>
+
+      <div class="cart-controls">
+        <div class="quantity">
+          <button id="minus">-</button>
+          <span id="quantity">0</span>
+          <button id="plus">+</button>
+        </div>
+        <button id="add-to-cart">
+          <img src="./Assets/icon-cart.svg" alt="cart" />
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </main>
+
+
+  <script type="module" src="./dist/script.js"></script>
+</body>
+</html>
