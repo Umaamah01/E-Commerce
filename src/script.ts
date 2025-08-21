@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const PRICE = 125;
 
   // Helper to cast getElementById
-  const $ = <T extends HTMLElement>(id: string): T => {
-    return document.getElementById(id) as T;
-  };
+  const $ = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
 
   const quantityEl = $("quantity") as HTMLSpanElement;
   const plusBtn = $("plus") as HTMLButtonElement;
@@ -17,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile nav toggle
   const toggleBtn = $("toggleBtn") as HTMLButtonElement;
-  const navLinks = $("navLinks") as HTMLUListElement;
+  const navLinks = $("navlinks") as HTMLUListElement;
+  const overlay = $("overlay") as HTMLDivElement;
 
   interface CartItem {
     name: string;
@@ -89,14 +88,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle cart popup from icon
   cartIcon.addEventListener("click", () => {
-    cartPopup.style.display =
-      cartPopup.style.display === "block" ? "none" : "block";
+    cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
   });
 
-  // Mobile nav toggle
+  // Mobile nav toggle logic
+  function openNav() {
+    navLinks.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function closeNav() {
+    navLinks.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
   toggleBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    if (navLinks.classList.contains("active")) {
+      closeNav();
+    } else {
+      openNav();
+    }
   });
+
+  overlay.addEventListener("click", closeNav);
 
   // Initialize
   updateQuantity();
