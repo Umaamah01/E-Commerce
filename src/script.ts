@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile nav toggle
   const toggleBtn = $("toggleBtn") as HTMLButtonElement;
-  const navLinks = $("navlinks") as HTMLUListElement;
+  const navLinks = $("navLinks") as HTMLUListElement;
   const overlay = $("overlay") as HTMLDivElement;
 
   interface CartItem {

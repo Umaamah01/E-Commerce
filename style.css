@@ -12,7 +12,7 @@ body {
   align-items: center;
   padding: 20px 50px;
   border-bottom: 1px solid #eee;
-  position: relative; /* for absolute mobile menu */
+  position: relative;
 }
 
 .logo {
@@ -180,15 +180,15 @@ body {
 /* ===== CART POPUP ===== */
 .cart-popup {
   position: absolute;
-  top: 70px; /* show below navbar */
-  right: 50px; /* align with cart icon */
+  top: 70px;
+  right: 50px;
   width: 350px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   padding: 20px;
   z-index: 100;
-  display: none; /* hidden initially */
+  display: none;
 }
 
 .cart-popup h3 {
@@ -246,6 +246,23 @@ body {
   cursor: pointer;
 }
 
+/* ===== OVERLAY FOR MOBILE MENU ===== */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 150;
+}
+
+.overlay.active {
+  display: block;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 900px) {
   .product-container {
@@ -255,26 +272,28 @@ body {
   }
 
   .toggle {
-    display: block; /* show hamburger */
+    display: block;
     color: #555;
   }
 
   .nav-links {
-    display: none; /* hide menu initially on mobile */
+    display: flex;
     flex-direction: column;
-    gap: 15px;
-    position: absolute;
-    top: 70px; /* below navbar */
-    right: 20px;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
     background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 100;
+    padding: 60px 20px;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 200;
   }
 
   .nav-links.active {
-    display: flex; /* show when toggle clicked */
+    left: 0;
   }
 
   .product-details {
@@ -340,46 +359,3 @@ body {
     width: 50px;
   }
 }
-/* Mobile nav menu slide-in */
-@media (max-width: 900px) {
-  .toggle {
-    display: block; /* show hamburger */
-    color: #555;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -250px; /* start off-screen */
-    height: 100%;
-    width: 250px;
-    background: #fff;
-    flex-direction: column;
-    gap: 20px;
-    padding: 60px 20px;
-    box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-    transition: right 0.3s ease-in-out;
-    z-index: 200;
-  }
-
-  .nav-links.active {
-    right: 0; /* slide in */
-  }
-
-  /* Optional: overlay behind menu */
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 100;
-  }
-
-  .overlay.active {
-    display: block;
-  }
-}
-
